@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    font-family: 'inter', serif;
+}
+
+.navbar {
+    list-style-type: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1vh;
+}
+
+.navElem {
+    position: relative;
+    text-decoration: none;
+}
+
+.navElem.selected::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: blue;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: grid;
+        width: 100vw;
+        background: red;
+        place-items: center;
+        height: 4rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navElem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+        position: absolute;
+        width: 100vw;
+        background-color: white;
+        border: 1px solid #ddd;
+    }
+
+    .navElem.selected {
+        z-index: 1;
+    }
+
+    .navElem.selected::after {
+        background: transparent;
+    }
+
+    .navbar.dropdown > .navElem {
+        position: relative;
+    }
+
+    .navElem.selected {
+        grid-row-start: 1;
+    }
+}
